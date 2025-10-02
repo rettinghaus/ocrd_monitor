@@ -1,13 +1,13 @@
 import nox
 
 
-@nox.session(python=("3.11"))
+@nox.session
 def mypy(session: nox.Session) -> None:
     session.install("-e", ".[dev]")
     session.run("mypy", "--strict", "ocrdbrowser", "ocrdmonitor", "tests")
 
 
-@nox.session(python=("3.11"))
+@nox.session
 def pytest(session: nox.Session) -> None:
     session.install("-e", ".[dev]")
     session.install("pytest-clarity")
